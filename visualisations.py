@@ -1,5 +1,15 @@
 import matplotlib.pyplot as plt
+import pandas as pd
 import seaborn as sns
+
+
+def plot_signals(train_df):
+    stubnames = train_df.columns.difference(["index", "time"])
+    train_df = pd.melt(train_df, id_vars=['time'], value_vars=stubnames)
+    train_df.columns = ["Time", "Device", "Signal"]
+    g = sns.FacetGrid(train_df, col="Device", col_wrap=3) #  height=1.5
+    g = g.map(plt.scatter, "Time", "Signal", alpha=0.4).set(xticks=[])
+    plt.show(g)
 
 
 def classification_heatmap(classification_df):
