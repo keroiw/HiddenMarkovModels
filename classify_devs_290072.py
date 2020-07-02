@@ -23,12 +23,12 @@ def read_test_files(test_dir):
 
 #train_file, test_folder, output_file = ParseArguments()
 train_file, test_folder, output_file = ["./house_devices.csv", "./test_sets", "./results.txt"]
+train_df = pd.read_csv(train_file)
 test_dfs, file_names = read_test_files(test_folder)
 model_params = {"lighting2": 2, "lighting5": 2, "lighting4": 2, "refrigerator": 2, "microwave": 2}
 
 
 def train_models():
-    train_df = pd.read_csv(train_file)
     models_dict = dict()
     for m_name, m_param in model_params.items():
         X_train = train_df[[m_name]]

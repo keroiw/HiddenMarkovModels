@@ -93,8 +93,7 @@ def summarize_params_selection(collected_models):
     return selected_params.set_index("Device")
 
 
-def read_test_files():
-    test_dir = os.path.join(os.getcwd(), "test_sets")
+def read_test_files(test_dir):
     test_sets_paths = [f for f in os.listdir(test_dir) if os.path.isfile(os.path.join(test_dir, f))]
     test_sets_paths = sorted([os.path.join(test_dir, f) for f in test_sets_paths])
     return [pd.read_csv(f)[["dev"]] for f in test_sets_paths]
