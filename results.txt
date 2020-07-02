@@ -1,0 +1,7 @@
+dev_classified                  file
+  refrigerator  ./test_sets/dev1.csv
+     lighting2  ./test_sets/dev2.csv
+  refrigerator  ./test_sets/dev3.csv
+     microwave  ./test_sets/dev4.csv
+  refrigerator  ./test_sets/dev5.csv
+  refrigerator  ./test_sets/dev6.csv
